@@ -292,7 +292,7 @@ export class FFMpegProgress extends EventEmitter implements IFFMpegProgress {
       dup: data.dup_frames,
 
       frame: data.frame === undefined ? null : data.frame,
-      time: data.out_time_us === 'N/A' ? null : data.out_time_us / 1e6,
+      time: humanTimeToMS(data.out_time),
 
       speed: data.speed === 'N/A' ? null : parseFloat(data.speed.toString().replace('x', '')),
       fps: data.fps === undefined ? null : data.fps,
